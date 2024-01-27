@@ -1,2 +1,2 @@
-# Fog_Edge_Resource_Mgt
+# Cloud_Fog_Edge_Resource_Mgt
 Fog Edge IoT resource management with Genetic Algorithem
