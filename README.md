@@ -7,8 +7,9 @@ Parameters tracked:
   3.power usage 
   5.network usage, 
   6.cloud used Time
+  
 Implemented 
-    Cloud only,   Brute force Algorithm strategies for resource management/task offloading/task scheduling
+    Cloud only, Brute force Algorithm strategies for resource management/task offloading/task scheduling
 Easily any one could modify strategies based on genetic/PSO or any algorithms for resource management to optimise parameters
 
 IoT network settings:
