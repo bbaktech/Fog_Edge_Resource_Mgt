@@ -36,7 +36,6 @@ class Job:
         self.job_type = NORMAL_ALERTS
         self.no_instructions = NO_INSTRUCTIONS1
         self.ed_name = ""
-        self.no_instructions = 0
         self.dest =""
         self.duration = 0.
         self.fd_devid =0
@@ -117,6 +116,7 @@ class Cloud:
         self.cost_per_unit_time = CLOUD_COST_UNIT_TIME
         self.cpu_speed = CLOUD_CPU_SPEED
         self.name = "Cloud Server"
+        self.netwrkutil = 0.
 
     def ExecutesTask(self, jb):
         jb.setExecutionstarttime(LATENCY_ED_FR + LATENCY_CS_FR)
@@ -127,15 +127,17 @@ class Cloud:
         jb.setExecutionduration(ex_duration)
         self.busy_time = self.busy_time + jb.no_instructions / self.cpu_speed
         logentry.WriteStringToJobsLog(jb)
+        self.netwrkutil = self.netwrkutil + jb.data_size/1000 * LATENCY_CS_FR
     
     def clear(self):
         self.slot_job_count = 0
 
     def WriteSlotSummary(self):
         logentry.WriteStringToSlotsLog("Cloud Exicuted:"+str(self.slot_job_count)+"Jobs \n")
-          
     def PrintNoTasksExecuted(self):
-	    print("Cloud executed :"+str(self.total_job_count)+" Jobs" + "\n       Time Used:"+str(self.busy_time)  + "\n       Cost:"+ str(self.busy_time*self.cost_per_unit_time))
+        print("Cloud executed :"+str(self.total_job_count)+" Jobs" + "\n       Time Used:"+str(self.busy_time)  + "\n       Cost:"+ str(self.busy_time*self.cost_per_unit_time))
+        print("Network Utilization :" + str(self.netwrkutil) + "ms")        
+
 
 class FogDevice :
     def __init__(self,id,name):
