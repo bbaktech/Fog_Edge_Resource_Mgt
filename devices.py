@@ -127,7 +127,7 @@ class Cloud:
         jb.setExecutionduration(ex_duration)
         self.busy_time = self.busy_time + jb.no_instructions / self.cpu_speed
         logentry.WriteStringToJobsLog(jb)
-        self.netwrkutil = self.netwrkutil + jb.data_size/1000 * LATENCY_CS_FR
+        self.netwrkutil = self.netwrkutil + jb.data_size/1000 
     
     def clear(self):
         self.slot_job_count = 0
@@ -136,7 +136,7 @@ class Cloud:
         logentry.WriteStringToSlotsLog("Cloud Exicuted:"+str(self.slot_job_count)+"Jobs \n")
     def PrintNoTasksExecuted(self):
         print("Cloud executed :"+str(self.total_job_count)+" Jobs" + "\n       Time Used:"+str(self.busy_time)  + "\n       Cost:"+ str(self.busy_time*self.cost_per_unit_time))
-        print("Network Utilization :" + str(self.netwrkutil) + "ms")        
+        print("Network Utilization :" + str(self.netwrkutil) + "MBs")        
 
 
 class FogDevice :
