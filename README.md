@@ -5,8 +5,8 @@ Parameters tracked:
   1.response time, 
   2.fog-edge resource utilization,
   3.power usage 
-  5.network usage, 
-  6.cloud used Time
+  4.network usage, 
+  5.cloud used Time
   
 Implemented 
     Cloud only, Brute force Algorithm strategies for resource management/task offloading/task scheduling
